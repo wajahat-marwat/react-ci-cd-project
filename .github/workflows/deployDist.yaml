@@ -53,10 +53,10 @@ jobs:
                 name: dist-files
                 path: dist
     deploy:
-          needs: test
-          runs-on: ubuntu-latest
-          steps: 
-            - name: Dwonload Dist Artifact
+        needs: build
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Download Dist Artifact
               uses: actions/download-artifact@v4
               with:
                 name: dist-files
