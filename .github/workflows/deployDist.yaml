@@ -9,7 +9,7 @@ jobs:
             - name: Install node 20
               uses: actions/setup-node@v4
               with:
-                node-version: 20
+                node-version: '20.x'
             - name: print node version
               run: node -V
             - name: Install dependencies
