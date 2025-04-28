@@ -5,7 +5,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Get Code
-              run: |
-                echo "cloning repo.." 
-                echo "${{toJson(github)}}"
-                git clone https://github.com/wajahat-marwat/react-ci-cd-project.git
+              uses: actions/checkout@v4
+            - name: Install node 20
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - name: print node version
+              run: node -V
+            - name: Install dependencies
+              run: npm ci
+            - name: Run Tests
+              run: npm run test 
+              
+            #   run: |
+            #   echo "cloning repo.." 
+            #   echo "${{toJson(github)}}"
+            #   git clone https://github.com/wajahat-marwat/react-ci-cd-project.git
